@@ -2,7 +2,7 @@ import axios from 'axios'
 import { mockModels } from './mockData'
 
 // Configuration settings
-const USE_MOCK_DATA = true
+const USE_MOCK_DATA = false
 
 // In development, use relative URLs which will be handled by the Vite proxy
 // In production, use the absolute Firebase URL
