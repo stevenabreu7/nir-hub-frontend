@@ -94,7 +94,7 @@ h3 {
 }
 
 .platform {
-  background-color: #f0f0f0;
+  background-color:rgb(169, 174, 255);
   border-radius: 4px;
   padding: 0.15rem 0.5rem;
   font-size: 0.8rem;

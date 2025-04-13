@@ -19,7 +19,7 @@
       </div>
       
       <div class="filter-group">
-        <label>Framework:</label>
+        <label>Origin framework:</label>
         <select v-model="selectedFramework" @change="emitSearch">
           <option value="">All Frameworks</option>
           <option v-for="fw in availableFrameworks" :key="fw" :value="fw">{{ fw }}</option>
@@ -27,7 +27,7 @@
       </div>
       
       <div class="filter-group">
-        <label>Platform:</label>
+        <label>Compatible with:</label>
         <select v-model="selectedPlatform" @change="emitSearch">
           <option value="">All Platforms</option>
           <option v-for="platform in availablePlatforms" :key="platform" :value="platform">{{ platform }}</option>
