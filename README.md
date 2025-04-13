@@ -45,7 +45,8 @@ npm install
 npm run dev
 ```
 
-The application will be available at `http://localhost:3000`
+The application will be available at `http://localhost:3000`. 
+To avoid CORS issues, you can use mock data by setting `const USE_MOCK_DATA = true` in `src/services/api.js`.
 
 ### Building for Production
 
@@ -82,5 +83,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - NIR Project (https://neuroir.org)
-- Vue.js team
-- PrimeVue team
+- Vue.js
+- PrimeVue

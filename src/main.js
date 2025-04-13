@@ -16,6 +16,8 @@ const routes = [
   { path: '/', component: HomeView },
   { path: '/model/:id', component: ModelDetailsView, props: true },
   { path: '/user/:userId', component: UserModelsView, props: true },
+  // Redirect any unknown paths to home
+  { path: '/:pathMatch(.*)*', redirect: '/' }
 ]
 
 const router = createRouter({
