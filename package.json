@@ -2,19 +2,20 @@
   "name": "nir-hub-frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vueuse/core": "^13.1.0",
-    "axios": "^1.8.4",
-    "marked": "^15.0.8",
-    "primeicons": "^7.0.0",
-    "primevue": "^3.53.1",
+    "@vueuse/core": "^10.9.0",
+    "axios": "^1.6.7",
+    "marked": "^12.0.0",
+    "primeicons": "^6.0.1",
+    "primevue": "^3.48.1",
     "vue": "^3.4.21",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

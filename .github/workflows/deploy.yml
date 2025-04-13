@@ -5,6 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -17,17 +20,35 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
           
       - name: Install dependencies 📦
-        run: npm ci
+        run: npm install
+        
+      - name: Update vite config for GitHub Pages 🔧
+        run: |
+          echo "import { defineConfig } from 'vite'
+          import vue from '@vitejs/plugin-vue'
+          
+          export default defineConfig({
+            plugins: [vue()],
+            server: {
+              port: 3000,
+              proxy: {
+                '/api': {
+                  target: 'https://nir-hub-042025.web.app',
+                  changeOrigin: true,
+                  secure: true
+                }
+              }
+            },
+            base: '/nir-hub-frontend/'
+          })" > vite.config.js
         
       - name: Build 🏗️
         run: npm run build
         
       - name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          folder: dist
-          clean: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

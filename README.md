@@ -2,6 +2,8 @@
 
 A modern, lightweight frontend for the NIR (Neural Interface Representation) model repository. This application provides a clean interface for browsing, searching, and exploring NIR models.
 
+**Live Demo:** [https://stevenabreu7.github.io/nir-hub-frontend/](https://stevenabreu7.github.io/nir-hub-frontend/)
+
 ## Features
 
 - Browse all available NIR models
@@ -31,8 +33,8 @@ A modern, lightweight frontend for the NIR (Neural Interface Representation) mod
 
 1. Clone the repository
 ```
-git clone https://github.com/yourusername/NIR-hub-frontend.git
-cd NIR-hub-frontend
+git clone https://github.com/stevenabreu7/nir-hub-frontend.git
+cd nir-hub-frontend
 ```
 
 2. Install dependencies
@@ -72,9 +74,9 @@ For other hosting environments:
 
 The API endpoint is configured in `src/services/api.js`. Update the `API_URL` constant to point to your NIR Hub API server.
 
-### GitHub Pages Base Path
+### Mock Data
 
-When deploying to GitHub Pages, update the `base` property in `vite.config.js` to match your repository name.
+During development, mock data is used automatically when API requests fail. You can configure this behavior in `src/services/api.js`.
 
 ## License
 

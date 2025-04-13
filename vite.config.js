@@ -18,5 +18,5 @@ export default defineConfig({
     }
   },
   // For GitHub Pages deployment - only use the base in production
-  base: isProduction ? '/NIR-hub-frontend/' : '/'
+  base: isProduction ? '/nir-hub-frontend/' : '/'
 })
