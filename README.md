@@ -74,9 +74,15 @@ For other hosting environments:
 
 The API endpoint is configured in `src/services/api.js`. Update the `API_URL` constant to point to your NIR Hub API server.
 
-### Mock Data
+### Mock Data vs Real Data
 
-During development, mock data is used automatically when API requests fail. You can configure this behavior in `src/services/api.js`.
+You can configure whether to use mock data or real data from the API:
+
+1. In `src/services/api.js`, set `USE_MOCK_DATA` to:
+   - `true` to always use mock data
+   - `false` to attempt to use real data from the API (falls back to mock data on errors)
+
+The API server requires CORS configuration to accept requests from your frontend domain. A sample implementation with CORS support is provided in the `/NIR-hub-v2/functions/main_with_cors.py` file.
 
 ## License
 

@@ -1,28 +1,34 @@
 import axios from 'axios'
 import { mockModels } from './mockData'
 
+// Check if we're on GitHub Pages or similar deployment
+const isGitHubPages = window.location.hostname.includes('github.io') || 
+                      window.location.hostname.includes('stevenabreu.com')
+
 // Configuration settings
-const USE_MOCK_DATA = true
+// Set to false to use real data from the API, true to always use mock data
+const USE_MOCK_DATA = false
 
 // In development, use relative URLs which will be handled by the Vite proxy
 // In production, use the absolute Firebase URL
 const isDevelopment = import.meta.env.MODE === 'development'
 const API_URL = isDevelopment ? '' : 'https://nir-hub-042025.web.app'
 
-// Create API client
+// Create API client with credentials for CORS
 const apiClient = axios.create({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json'
-  }
+  },
+  withCredentials: false
 })
 
 // Helper to handle API errors consistently
 const handleApiError = (error, mockResponse) => {
   console.error('API Error:', error)
   
-  // If using mock data is enabled or we encounter CORS, fall back to mock data
-  if (USE_MOCK_DATA || (error.message && error.message.includes('CORS'))) {
+  // Use mock data when explicitly enabled or when we encounter errors
+  if (USE_MOCK_DATA || (error.message && (error.message.includes('CORS') || error.message.includes('Network Error')))) {
     console.log('Falling back to mock data')
     return Promise.resolve(mockResponse)
   }
